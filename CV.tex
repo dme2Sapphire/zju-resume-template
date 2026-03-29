@@ -90,71 +90,99 @@
 
 %%%% 利用tikz来定位照片
 \begin{tikzpicture}[remember picture, overlay] 
-    \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{avatar.png}};
+    \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{avatar.jpg}};
   \end{tikzpicture}%
   %%%% 利用tikz来定位学校Logo，这里只在第一页显示
   \begin{tikzpicture}[remember picture, overlay] 
     \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=6cm]{zju.png}};
   \end{tikzpicture}%
-\centerline{\LARGE\bfseries{王欣蔚}} 
+\centerline{\LARGE\bfseries{王欣蔚}}
 
-[0.5em]
+\centerline{\normalsize{\faPhone\ 13516137701 \quad \faEnvelopeO\ \href{mailto:xinwei_wang@zju.edu.cn}{xinwei\_wang@zju.edu.cn}}} 
 
-\centerline{\normalsize{\faPhone\ 13516137701 \quad \faEnvelopeO\ \href{mailto:xinwei_wang@zju.edu.cn}{xinwei_wang@zju.edu.cn}}} 
+\centerline{\normalsize{ \href{https://github.com/maksymilan}{} \quad  \href{https://maksymilan.github.io/}{}}} 
 
-% \centerline{\normalsize{\faGithubSquare\ \href{https://github.com/maksymilan}{https://github.com/maksymilan} \quad \faRssSquare\ \href{https://maksymilan.github.io/}{https://maksymilan.github.io}}} 
-    
+% \centerline{\normalsize{\faGithubSquare\ \href{https://github.com/maksymilan}{} \quad \faRssSquare\ \href{https://maksymilan.github.io/}{}}} 
 \section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}    
-\textbf{硕士：浙江大学} 电子信息（生物医学工程） \hfill 2023.9 -- 至今\\[0.5em] % 标题和正文间加一点距离
+\textbf{硕士：浙江大学} \quad 电子信息（生物医学工程） \hfill 2023.9 -- 至今
 
 \begin{itemize}[nosep]
     \item 研究方向：皮层脑电图、猕猴初级视觉皮层、神经信息处理
     \item 工作内容：基于Matlab与Python分析和处理神经信号数据；使用机器学习方法进行神经信息解码；参与实验设计与数据采集，阅读科研论文与追踪领域前沿进展
-\end{itemize}
-\\[0.5em] % 在硕士和本科之间加一点距离
+\end{itemize} 
 
-\textbf{本科：天津大学} 生物医学工程  \hfill 2019.9 -- 2023.6\\[0.5em]
- 
+\textbf{本科：天津大学} \quad 生物医学工程  \hfill 2019.9 -- 2023.6
 \begin{itemize}[nosep]
     \item 主修课程：生物医学信号处理、软件技术基础、医学图像处理
 \end{itemize}
 
-\section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 项目经历}
-
-% --- 第一个项目 ---
-% 将标题行末尾的 \\ 替换为 \titlebreak 命令
-\textbf{98烂坑风控与可视化作战平台} \hfill 2024.08 -- 至今 \titlebreak
-项目描述：为维护cc98社区的讨论纯度、净化“心灵之约”版块风气，本项目旨在对“烂坑”进行科学、严谨的量化分析，并引入\textbf{大语言模型(LLM)}对烂坑帖进行\textbf{自动化情感极性与“离谱指数”标注}。
-% 在 itemize 的选项中，使用 topsep=\intraProjectListTopSep 来控制上边距
-\begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{数据与后端}：运用 \textbf{Go} 语言及 \textbf{GORM} 框架，实现对全站“烂坑”帖的7x24小时全天候\textbf{抓取}与\textbf{入库}(MySQL)。
-    \item \textbf{可视化前端}：采用原生 \textbf{HTML/CSS/JS} 构建了“烂坑”实时监控\textbf{作战大屏}。实现了坑主成分分析、挖坑热力图、年度烂坑王榜单等\textbf{可视化图表}，并通过 \textbf{AJAX} 异步刷新，确保数据洞察的实时性。
-    \item \textbf{核心产出}：全面掌握了从\textbf{数据采集、清洗、LLM标注到可视化分析}的“反烂坑”全链路技术。
+\section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术能力}
+\begin{itemize}[nosep]
+    \item \textbf{编程语言：} 熟悉Python、Matlab，了解C++，熟练编写脚本进行数据处理与可视化分析，能够进行基本的软件开发
+    \item \textbf{算法知识：} 熟悉传统信号处理算法，如滤波、时频分析等；熟悉常见机器学习与深度学习算法；了解数据结构，算法等计算机基础
+    \item \textbf{计算机工具：} 了解Linux的基本命令，能够使用git进行版本管理
+    \item \textbf{英语：} 能够熟练阅读英文文献，使用英文进行文献汇报，CET-6 607分
+    \item \textbf{AI相关：} 了解LLM领域的最新进展（Agent架构、工具集成等），能够使用Claude Code等AI开发工具进行代码编写与提效 
 \end{itemize}
 
-% 使用 \projectsep 命令来分隔两个项目
+\section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 科研与项目经历}
+
+\textbf{猕猴ECoG电极植入的长期稳定性评估} \hfill 2024.6 -- 2025.12 \titlebreak
+项目简述：高密度微皮层脑电图（µECoG）能够以亚毫米级分辨率探测视觉皮层功能柱结构，但传统"盲"植入技术因术中脑脊液流失导致脑移位可达数毫米，使得术后电极位置与真实皮层解剖存在显著偏差。这一不确定性严重阻碍了电生理信号与光学成像获取的功能图谱（如颜色选择模块）之间的精确空间配准，限制了多模态神经科学研究的发展。
+\begin{itemize}[nosep]
+    \item 针对脑移位导致的电极定位不确定性，开发基于血管交叉点基准的图像配准算法（透视变换+最小二乘拟合），量化术后14天内电极微位移量（中位0.20 mm）
+    \item 建立ECoG信号预处理流程：数字滤波、降采样、共模重参考（CAR）及ICA伪迹剔除，确保信号质量
+    \item 采用小波变换进行时频分解，提取gamma频段功率谱特征，频谱白化处理以补偿1/f衰减，增强可视化效果
+    \item 构建MVPA解码框架：基于gamma功率时空特征（64通道×8时间点）构造高维特征向量，采用SVM结合10折交叉验证，实现红绿/黑白光栅刺激的高精度分类（>75\%准确率）
+    \item 纵向评估5个月以上记录稳定性，验证组织覆盖状态下神经解码性能的持续有效性。
+\end{itemize}
+
 \projectsep
 
-% --- 第二个项目 ---
-\textbf{AIGC驱动的超进化自动挖坑机 (Agent)} \hfill 2025.02 -- 至今 \titlebreak
-项目描述：为探索心灵版规的边界，以及测试版主锁沉反应速度的极限，本项目基于\textbf{多智能体协作(MCP)与LLM}技术，开发了一款能\textbf{自主“挖坑”与“互坑”}的AI Agent。
-\begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{并发与调度}：后端采用 \textbf{Go} 语言，充分利用 \textbf{Goroutine} 和 \textbf{Channel} 的高并发模型，模拟\textbf{用户并发在线}，执行定时挖坑，确保挖坑行动的\textbf{隐蔽性}与\textbf{高效性}。
-    \item \textbf{实时监控与响应}：运用 \textbf{WebSocket} 协议实现了对目标帖子的\textbf{实时监听与交互}。确保在烂坑被识破的第一时间，Agent能光速完成\textbf{“lktp”}或\textbf{反向钓鱼}操作，展现出极高的AI博弈能力。
-    \item \textbf{可视化GUI}：前端使用 \textbf{React} 框架构建了\textbf{后台管理的可视化面板 (Admin Panel)}。可一键下达挖坑指令、动态调整Agent的\textbf{指令}、并实时监控数据。
-\end{itemize}
-
-\section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术栈}
+\textbf{增强大语言模型生物信息学工具调用能力} \hfill CCF-C类会议 \quad 2025.01 -- 2025.08 \titlebreak
+项目简述：针对大语言模型在开放式科学发现中的工具调用局限，本项目构建了生物信息学基准测试Co-BioBench（涵盖15个真实文献场景，3,785个元任务），并提出SDTL微调框架。通过双代理协作数据生成与动态课程学习，实现了7B规模模型在复杂科学工作流上超越GPT-4o的性能。
 \begin{itemize}[nosep]
-    \item \textbf{编程语言：} \textbf{Go}, Python, C++
-    \item \textbf{开发工具：} SSH, Git, Vim, MakeFile,LaTex
-    \item \textbf{操作系统：} Linux
+    \item 生物信息学工具命名高度专业化且文档稀疏，现有模型易过拟合于函数名记忆而非语义理解，同时缺乏基于真实文献复现的高质量工具调用训练数据。
+    \item 负责设计数据增强框架以强制模型学习工具功能语义，并基于开源论文构建包含正负样本的数据集，解决科学工具调用中的命名歧义与泛化难题。
+    \item 设计多维度数据增强策略：实施函数名随机化、参数名遮蔽及跨域风格迁移，消除模型对表面模式的依赖。
+    \item 针对数据构建，检索15篇开放代码的文献，通过Scientist-Co-pilot双代理交互流程提取真实R/Python工具调用场景，完成多轮数据清洗后，利用LLM自动生成负向样本（构造干扰函数及错误参数组合）以提升模型判别能力。
+    \item 所构建的数据集支撑SDTL-Qwen2.5-7B模型在Co-BioBench基准上取得51.65\%准确率，较基线提升17个百分点并超越GPT-4o；消融实验表明，数据增强策略显著提升了模型在函数名/参数名被遮蔽场景下的鲁棒性，有效解决了科学工具命名歧义带来的泛化难题。
 \end{itemize}
-\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faList}\ 获奖情况}
-\begin{itemize}
-    \item CC98年度用户 \hfill 2023.12
+% --- 第一个项目 ---
+% 将标题行末尾的 \\ 替换为 \titlebreak 命令
+% \textbf{98烂坑风控与可视化作战平台} \hfill 2024.08 -- 至今 \titlebreak
+% 项目描述：为维护cc98社区的讨论纯度、净化“心灵之约”版块风气，本项目旨在对“烂坑”进行科学、严谨的量化分析，并引入\textbf{大语言模型(LLM)}对烂坑帖进行\textbf{自动化情感极性与“离谱指数”标注}。
+% % 在 itemize 的选项中，使用 topsep=\intraProjectListTopSep 来控制上边距
+% \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
+%     \item \textbf{数据与后端}：运用 \textbf{Go} 语言及 \textbf{GORM} 框架，实现对全站“烂坑”帖的7x24小时全天候\textbf{抓取}与\textbf{入库}(MySQL)。
+%     \item \textbf{可视化前端}：采用原生 \textbf{HTML/CSS/JS} 构建了“烂坑”实时监控\textbf{作战大屏}。实现了坑主成分分析、挖坑热力图、年度烂坑王榜单等\textbf{可视化图表}，并通过 \textbf{AJAX} 异步刷新，确保数据洞察的实时性。
+%     \item \textbf{核心产出}：全面掌握了从\textbf{数据采集、清洗、LLM标注到可视化分析}的“反烂坑”全链路技术。
+% \end{itemize}
+
+% % 使用 \projectsep 命令来分隔两个项目
+% \projectsep
+
+% % --- 第二个项目 ---
+% \textbf{AIGC驱动的超进化自动挖坑机 (Agent)} \hfill 2025.02 -- 至今 \titlebreak
+% 项目描述：为探索心灵版规的边界，以及测试版主锁沉反应速度的极限，本项目基于\textbf{多智能体协作(MCP)与LLM}技术，开发了一款能\textbf{自主“挖坑”与“互坑”}的AI Agent。
+% \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
+%     \item \textbf{并发与调度}：后端采用 \textbf{Go} 语言，充分利用 \textbf{Goroutine} 和 \textbf{Channel} 的高并发模型，模拟\textbf{用户并发在线}，执行定时挖坑，确保挖坑行动的\textbf{隐蔽性}与\textbf{高效性}。
+%     \item \textbf{实时监控与响应}：运用 \textbf{WebSocket} 协议实现了对目标帖子的\textbf{实时监听与交互}。确保在烂坑被识破的第一时间，Agent能光速完成\textbf{“lktp”}或\textbf{反向钓鱼}操作，展现出极高的AI博弈能力。
+%     \item \textbf{可视化GUI}：前端使用 \textbf{React} 框架构建了\textbf{后台管理的可视化面板 (Admin Panel)}。可一键下达挖坑指令、动态调整Agent的\textbf{指令}、并实时监控数据。
+% \end{itemize}
+
+% \section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术栈}
+% \begin{itemize}[nosep]
+%     \item \textbf{编程语言：} \textbf{Go}, Python, C++
+%     \item \textbf{开发工具：} SSH, Git, Vim, MakeFile,LaTex
+%     \item \textbf{操作系统：} Linux
+% \end{itemize}
+
+% \section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faList}\ 获奖情况}
+% \begin{itemize}
+%     \item CC98年度用户 \hfill 2023.12
     
-\end{itemize}
+% \end{itemize}
     
 % \section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 其他}
 % \begin{itemize}[parsep=0.5ex]
