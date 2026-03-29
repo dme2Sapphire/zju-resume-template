@@ -90,23 +90,33 @@
 
 %%%% 利用tikz来定位照片
 \begin{tikzpicture}[remember picture, overlay] 
-    \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{avatar.jpg}};
+    \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{avatar.png}};
   \end{tikzpicture}%
   %%%% 利用tikz来定位学校Logo，这里只在第一页显示
   \begin{tikzpicture}[remember picture, overlay] 
     \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=6cm]{zju.png}};
   \end{tikzpicture}%
-\centerline{\LARGE\bfseries{胡豆}} 
+\centerline{\LARGE\bfseries{王欣蔚}} 
 
-\centerline{\normalsize{\faPhone\ 111-1111-1111 \quad \faEnvelopeO\ \href{mailto:3230100000@zju.edu.cn}{3230100000@zju.edu.cn}}} 
+[0.5em]
 
-\centerline{\normalsize{\faGithubSquare\ \href{https://github.com/maksymilan}{https://github.com/maksymilan} \quad \faRssSquare\ \href{https://maksymilan.github.io/}{https://maksymilan.github.io}}} 
+\centerline{\normalsize{\faPhone\ 13516137701 \quad \faEnvelopeO\ \href{mailto:xinwei_wang@zju.edu.cn}{xinwei_wang@zju.edu.cn}}} 
+
+% \centerline{\normalsize{\faGithubSquare\ \href{https://github.com/maksymilan}{https://github.com/maksymilan} \quad \faRssSquare\ \href{https://maksymilan.github.io/}{https://maksymilan.github.io}}} 
     
 \section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}    
-\textbf{浙江大学} \hfill 2023.9 -- 至今\\[0.5em] % 标题和正文间加一点距离
-CC98烂坑挖掘工程与技术\quad 大二 
+\textbf{硕士：浙江大学} 电子信息（生物医学工程） \hfill 2023.9 -- 至今\\[0.5em] % 标题和正文间加一点距离
+
 \begin{itemize}[nosep]
-    \item 相关课程：《烂坑挖掘及基础》、《高级挖坑技巧》、《烂坑数理统计》
+    \item 研究方向：皮层脑电图、猕猴初级视觉皮层、神经信息处理
+    \item 工作内容：基于Matlab与Python分析和处理神经信号数据；使用机器学习方法进行神经信息解码；参与实验设计与数据采集，阅读科研论文与追踪领域前沿进展
+\end{itemize}
+\\[0.5em] % 在硕士和本科之间加一点距离
+
+\textbf{本科：天津大学} 生物医学工程  \hfill 2019.9 -- 2023.6\\[0.5em]
+ 
+\begin{itemize}[nosep]
+    \item 主修课程：生物医学信号处理、软件技术基础、医学图像处理
 \end{itemize}
 
 \section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 项目经历}
@@ -146,10 +156,10 @@ CC98烂坑挖掘工程与技术\quad 大二
     
 \end{itemize}
     
-\section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 其他}
-\begin{itemize}[parsep=0.5ex]
-    \item \textbf{技术博客：} \href{https://maksymilan.github.io/}{https://maksymilan.github.io/}
-    \item \textbf{GitHub：} \href{https://github.com/maksymilan}{https://github.com/maksymilan} 
-    \item \textbf{英语水平：} CET-4, CET-6
-\end{itemize}
+% \section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 其他}
+% \begin{itemize}[parsep=0.5ex]
+%     \item \textbf{技术博客：} \href{https://maksymilan.github.io/}{https://maksymilan.github.io/}
+%     \item \textbf{GitHub：} \href{https://github.com/maksymilan}{https://github.com/maksymilan} 
+%     \item \textbf{英语水平：} CET-4, CET-6
+% \end{itemize}
 \end{document}
