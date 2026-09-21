@@ -1,24 +1,36 @@
-# 定义新的PDF文件名 (不带.pdf后缀)
-NEW_FILENAME_BASE = CV
+# =======================================================================
+# 岗位清单：名字就是 -jobname，同时也是清单文件名 profiles/<名字>.tex
+# 加新岗位：写一份 profiles/CV-xxx.tex，再把 CV-xxx 加进下面这个列表。
+# =======================================================================
+JOBS = CV CV-agent CV-neural
 
+# 所有源码：改了其中的任何一个，PDF 都该重编。
+# 不做这一步的话，改了 content/ 下的正文，make 会因为「清单没变」而不重新编译。
+SOURCES = CV.tex .latexmkrc \
+          $(wildcard preamble/*.tex) \
+          $(wildcard content/*.tex content/*/*.tex)
 
-# 原始的tex文件名
-TEX_SOURCE = CV.tex
+# -----------------------------------------------------------------------
+# `make` 的默认目标：只出通用版 CV.pdf，与重构前行为一致。
+# 想要全部岗位：`make all`
+# 想要单个岗位：`make CV-agent.pdf`
+# -----------------------------------------------------------------------
+default: CV.pdf
 
-# 默认目标，当你只输入 'make' 时会执行这个
-all: $(NEW_FILENAME_BASE).pdf
+all: $(addsuffix .pdf,$(JOBS))
 
-# 编译生成新文件名的PDF
-$(NEW_FILENAME_BASE).pdf: $(TEX_SOURCE)
-	xelatex -jobname="$(NEW_FILENAME_BASE)" $(TEX_SOURCE)
-	xelatex -jobname="$(NEW_FILENAME_BASE)" $(TEX_SOURCE)
-	xelatex -jobname="$(NEW_FILENAME_BASE)" $(TEX_SOURCE)
+# 每个岗位单独一条规则：CV-agent.pdf ← profiles/CV-agent.tex
+# 实际的「读哪份清单」由 -jobname 决定（CV.tex 里用 \IfFileExists 据此挑选）。
+$(addsuffix .pdf,$(JOBS)): %.pdf: profiles/%.tex $(SOURCES)
+	latexmk -jobname=$*
 
-
-# 清理规则
 clean:
-	find . -name '*.aux' -print0 | xargs -0 rm -rf
-	rm -rf *.log *.lot *.out *.toc *.bbl *.blg *.thm *.nav *.xml *.snm *.bcf
-	# 同时清理新旧两种可能的PDF文件名，以及新jobname产生的辅助文件
-	rm -f CV-ch.pdf $(NEW_FILENAME_BASE).pdf
-	find . -name '$(NEW_FILENAME_BASE).aux' -print0 | xargs -0 rm -rf
+	rm -f $(addsuffix .pdf,$(JOBS)) \
+	      $(addsuffix .xdv,$(JOBS)) \
+	      $(addsuffix .synctex.gz,$(JOBS)) \
+	      $(addsuffix .aux,$(JOBS)) \
+	      $(addsuffix .log,$(JOBS)) \
+	      $(addsuffix .fls,$(JOBS)) \
+	      $(addsuffix .fdb_latexmk,$(JOBS))
+
+.PHONY: default all clean

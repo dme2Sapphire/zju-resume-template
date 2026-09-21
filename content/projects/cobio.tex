@@ -1,0 +1,9 @@
+\section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 科研与项目经历}
+
+\textbf{增强大语言模型生物信息学工具调用能力} \hfill PRCV 已录用 \quad 2025.01 -- 2025.08 \titlebreak
+项目简述：针对大语言模型在开放式科学发现中的工具调用局限，构建生物信息学工具调用基准 \textbf{Co-BioBench}，并提出 \textbf{SDTL} 微调框架，通过\textbf{双代理协作}数据生成与动态课程学习，使 7B 模型在复杂科学工作流上超越 GPT-4o。
+\begin{itemize}[nosep]
+    \item 生物信息学工具命名高度专业化且文档稀疏，模型易过拟合函数名记忆而非语义理解，且缺乏基于真实文献复现的高质量工具调用训练数据。
+    \item 基于\textbf{双代理交互范式}提取 3,785 个真实 R/Python 工具调用任务，并实施函数名随机化、参数名遮蔽与跨域风格迁移做数据增强，消除模型对表面模式的依赖。
+    \item 利用 LLM 自动生成干扰函数与错误参数组合作为负样本提升判别能力；微调模型在 Co-BioBench 上达 51.65\% 准确率，较基线 +17 pt 并超越 GPT-4o。
+\end{itemize}

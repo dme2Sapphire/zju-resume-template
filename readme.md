@@ -18,7 +18,7 @@
 ### 使用步骤：
 
 1. **Fork 本项目**：点击右上角的 `Fork` 按钮，将项目复制到您的 GitHub 账号下。
-2. **修改代码**：在您的仓库中，直接编辑 `CV.tex` 文件（或上传您的修改）。
+2. **修改代码**：在您的仓库中，直接编辑 `content/` 下的正文片段或 `profiles/` 下的岗位清单（或上传您的修改）。
 3. **自动触发**：一旦您提交 (Commit) 并推送 (Push) 代码，GitHub Actions 会自动开始构建。
 4. **下载简历**：
     *   点击仓库上方的 **Actions** 标签页。
@@ -30,7 +30,7 @@
     *   点击最新的那次运行记录（通常显示为绿色对勾 ✅）。
         
         ![Step 3](ci_steps/3.png)
-    *   在页面底部的 **Artifacts** 区域，点击 **CV-PDF** 即可下载生成的 PDF 文件。
+    *   在页面底部的 **Artifacts** 区域，可以下载各岗位的 PDF：**CV-PDF**（通用版）、**CV-agent-PDF**、**CV-neural-PDF**。每个岗位独立构建，互不影响。
         
         ![Step 4](ci_steps/4.png)
 
@@ -67,11 +67,28 @@
 **本项目已包含所有必需的字体文件**，无需额外下载。请确保您的文件目录结构与下方完全一致，尤其是 `fonts` 文件夹和根目录下的 `fontawesomesymbols-*.tex` 文件。
 
 ```
-├── CV.tex                           # LaTeX 主文件
-├── Makefile                         # 编译脚本
+├── CV.tex                           # 骨架：只负责挑选「岗位清单」
+├── profiles/                        # 岗位清单（决定正文有哪些内容、按什么顺序）
+│   ├── CV.tex                       #   通用版（默认）
+│   ├── CV-agent.tex                 #   Agent 开发
+│   └── CV-neural.tex                #   神经信息解码算法
+├── preamble/                        # 导言区
+│   ├── style.tex                    #   宏包、字体、页面与间距等样式设置
+│   └── header.tex                   #   姓名、意向岗位、联系方式、照片与校徽
+├── content/                         # 正文片段（供各岗位清单自由组合）
+│   ├── education.tex                #   教育背景
+│   ├── skills/
+│   │   ├── agent.tex                #   技能（Agent 侧重）
+│   │   └── neural.tex               #   技能（神经信息解码侧重）
+│   ├── internships/
+│   │   └── ant-rewrite.tex          #   实习经历
+│   └── projects/
+│       └── cobio.tex                #   项目经历
+├── makefile                         # 编译脚本
+├── .latexmkrc                       # latexmk 配置（引擎、默认文件、清理项）
 ├── README.md                        # 说明文件
 ├── avatar.jpg                       # 个人照片
-├── CV.png                           # 简历预览图
+├── CV.jpg                           # 简历预览图
 ├── zju.png                          # 学校 Logo
 ├── fontawesomesymbols-generic.tex   # (必须) FontAwesome 定义文件
 ├── fontawesomesymbols-pdftex.tex    # (必须) FontAwesome 定义文件
@@ -102,27 +119,51 @@
 
 ## 🚀 如何编译 (Compilation)
 
-本项目已提供 `Makefile`，可以直接 `make` 命令进行操作。
+请在**项目根目录**下执行。字体、图片、清单的路径都相对当前目录解析，换目录编译会找不到文件。
 
-### 1. 编译 PDF
+### 1. 一个岗位 = 一份「清单」
 
-在项目根目录下，打开终端并执行：
+正文并不写在 `CV.tex` 里。`CV.tex` 只是骨架：它根据编译时的 `-jobname`，去读 `profiles/<jobname>.tex`。
+那份清单就是一张「目录」，按顺序列出这个岗位要 `\input` 哪些片段（`content/` 下的教育背景、技能、实习、项目……）。
+
+| 编译命令 | 读入的清单 | 产物 |
+| --- | --- | --- |
+| `latexmk` | `profiles/CV.tex` | `CV.pdf`（通用版） |
+| `latexmk -jobname=CV-agent` | `profiles/CV-agent.tex` | `CV-agent.pdf` |
+| `latexmk -jobname=CV-neural` | `profiles/CV-neural.tex` | `CV-neural.pdf` |
+
+### 2. 编译 PDF
 
 ```bash
-make
+make                # 只编译通用版 → CV.pdf
+make all            # 编译全部岗位
+make CV-agent.pdf   # 只编译某一个岗位
+```
+
+等价的 latexmk 命令（`make` 只是它的包装）：
+
+```bash
+latexmk                    # → CV.pdf
+latexmk -jobname=CV-agent  # → CV-agent.pdf
 ```
 
 如果直接编译报错，可能是字体未安装，可以先双击fonts文件夹内的字体进行安装，然后重新编译
 
-此命令成功后，会在目录下生成 `CV.pdf` 文件。
-
-### 2. 清理辅助文件
+### 3. 清理辅助文件
 
 如果您想清理编译过程中产生的临时文件 (如 `.aux`, `.log` 等)，可以执行 `Makefile` 中已定义好的清理命令：
 
 ```bash
 make clean
 ```
+
+### 4. 新增一个岗位
+
+1. 在 `content/` 下准备好需要的片段（已有片段直接复用；只写这个岗位才用的措辞就新开一个文件）。
+2. 复制一份 `profiles/CV-agent.tex` 改成 `profiles/CV-你的岗位.tex`，用 `\def\PositionLine{意向岗位：xxx}` 写意向岗位，再调整 `\input` 列表。
+3. 把 `CV-你的岗位` 加进 `makefile` 顶部的 `JOBS`，以及 `.github/workflows/build.yml` 的 `matrix.profile`。
+
+不用改动 `CV.tex`。注意：`profiles/` 里的文件是片段，**不要**写 `\documentclass` 或 `\begin{document}`。
 
 ## 参考与致谢 (Acknowledgements)
 

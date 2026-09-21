@@ -1,0 +1,25 @@
+% =======================================================================
+% 岗位清单：默认（通用）
+%
+% 不带参数的 `latexmk` 会走到这里（此时 jobname = CV），产出 CV.pdf。
+% 本文件是「哪些内容、按什么顺序出现」的唯一依据 —— 加岗位请复制本文件，
+% 不要直接改这里。
+%
+% 可用变量：
+%   \PositionLine     意向岗位整行，例如 \def\PositionLine{意向岗位：Agent 开发工程师}
+%                     通用版不写，header 会输出一个空行占位
+% =======================================================================
+
+% \def\PositionLine{意向岗位：xxx}   % 通用版不写意向岗位
+
+\input{preamble/header}
+
+\input{content/education}
+
+\input{content/skills/agent}
+
+\input{content/internships/ant-rewrite}
+
+\projectsep
+
+\input{content/projects/cobio}
