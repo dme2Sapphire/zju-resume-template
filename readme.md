@@ -76,14 +76,17 @@
 │   ├── style.tex                    #   宏包、字体、页面与间距等样式设置
 │   └── header.tex                   #   姓名、意向岗位、联系方式、照片与校徽
 ├── content/                         # 正文片段（供各岗位清单自由组合）
+│   ├── sections/
+│   │   └── projects.tex             #   章节标题：科研与项目经历（与素材分离，便于排序）
 │   ├── education.tex                #   教育背景
 │   ├── skills/
 │   │   ├── agent.tex                #   技能（Agent 侧重）
 │   │   └── neural.tex               #   技能（神经信息解码侧重）
 │   ├── internships/
-│   │   └── ant-rewrite.tex          #   实习经历
+│   │   └── ant-rewrite.tex          #   实习经历（蚂蚁集团）
 │   └── projects/
-│       └── cobio.tex                #   项目经历
+│       ├── macaque-ecog.tex         #   猕猴 ECoG 电极长期稳定性
+│       └── cobio.tex                #   生物信息学工具调用（LLM）
 ├── makefile                         # 编译脚本
 ├── .latexmkrc                       # latexmk 配置（引擎、默认文件、清理项）
 ├── README.md                        # 说明文件
